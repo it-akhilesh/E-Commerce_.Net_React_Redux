@@ -37,8 +37,8 @@ try
 }
 catch (Exception ex)
 {
-    logger.LogError(ex, "A problem occurred during migration");
-}
+    logger.LogError(ex, "A problem occurred during migration"); 
+}                                           
 
 
 app.Run();
