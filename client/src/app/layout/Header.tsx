@@ -12,6 +12,20 @@ const rightLinks = [
     {title: 'register', path: '/register'},
     
 ]
+
+const navStyles = {
+    color: 'inherit',
+    textDecorations: 'none',
+    typography: 'h6',
+    '$:hover': {
+        color: 'grey.500'
+    },
+    '&.active': {
+        color: 'text.secondary'
+    }
+}
+    
+        
 interface Props {
     darkMode: boolean;
     handleThemeChange: () => void;
@@ -20,10 +34,10 @@ export default function Header({darkMode, handleThemeChange}: Props) {
     
     return (
         <AppBar position='static' sx={{mb: 4}}>
-            <Toolbar>
+            <Toolbar sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                 <Typography variant='h6' component={NavLink}
                     to='/'
-                    sx={{color: 'inherit', textDecoration: 'none'}}
+                    sx={navStyles}
                 >
                     RE-STORE
                 </Typography>
@@ -33,7 +47,8 @@ export default function Header({darkMode, handleThemeChange}: Props) {
                         <ListItem
                            component={NavLink}
                            to={path}
-                           sx={{color: 'inherit', typography: 'h6'}}
+                           key={path}
+                           sx={navStyles}
                         >
                             {title.toUpperCase()}
                         </ListItem>
@@ -50,7 +65,7 @@ export default function Header({darkMode, handleThemeChange}: Props) {
                         <ListItem
                            component={NavLink}
                            to={path}
-                           sx={{color: 'inherit', typography: 'h6'}}
+                           sx={navStyles}
                         >
                             {title.toUpperCase()}
                         </ListItem>
